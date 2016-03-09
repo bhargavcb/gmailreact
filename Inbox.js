@@ -10,10 +10,9 @@ import React, {
   Image,
   ListView,
   Dimensions,
-  Navigator
+  Navigator,
+  BackAndroid
 } from 'react-native';
-
-
 
 
 var URL = 'https://gmailclone.firebaseio.com/'
@@ -26,6 +25,14 @@ import ActionButton from 'react-native-action-button'
 import GiftedList from 'react-native-gifted-listview'
 var base = reBase.createClass('https://gmailclone.firebaseio.com/');
 import reBase from 're-base'
+
+BackAndroid.addEventListener('hardwareBackPress', () => {
+  if (_navigator.getCurrentRoutes().length === 1  ) {
+     return false;
+  }
+  _navigator.pop();
+  return true;
+});
 
 
 class Inbox extends Component{
@@ -73,6 +80,8 @@ class Inbox extends Component{
   }
  
   render() {
+
+    debugger;
     var height = Dimensions.get('window').height;
 
     var mail = this.state.mailDetails['0'];
@@ -98,7 +107,7 @@ class Inbox extends Component{
           position = "right"
           Icon name ="android-create"
           buttonColor="rgba(231,76,60,1)"
-          onPress={() => { ToastAndroid.show("New Mail",ToastAndroid.SHORT)}}
+          onPress={() => {this.props.navigator.push({name:'compose'})}}
         />
       </View>
     )

@@ -4,30 +4,25 @@ import React, {
   Component,
   StyleSheet,
   Text,
-  View,
-  TouchableNativeFeedback,
-  ToastAndroid,
-  Image,
-  ListView,
-  Dimensions
+  View
 } from 'react-native';
 
 
-class compose extends Component{
+
+class Compose extends Component{
 
 render()
-{
+{ 
+	debugger;
 	return(
-		<View>
-			<TextInput placeholder='Sender' />
-			<TextInput placeholder ="To"/>
-			<TextInput placeholder ="Subject"/>
-			<TextInput placeholder ="Content"/>
-		</View>
-
+		<Text>ComposeMail</Text>
 		)
 }
 
 }
 
-module.exports = "Compose"
+
+
+
+module.exports = Compose;
+
